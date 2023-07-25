@@ -10,8 +10,9 @@ function getDiceApi(requestUrl) {
             return response.json();
         })
         .then(function(data) {
-            console.log(data);
-            getJokeApi(jokeUrl, 5);
+            var roll = data.data.Dice
+            console.log(roll);
+            getJokeApi(jokeUrl, roll);
             return data;
         })
     
