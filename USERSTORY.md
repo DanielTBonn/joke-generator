@@ -31,5 +31,3 @@ I think this should cover all of our bases for a minimum viable project. This pr
 * We'll write a good README
 
 One of the requirements for this project was writing up a USERSTORY so we got that out of the way. This seems like a good place to start
-
-
