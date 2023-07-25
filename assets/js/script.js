@@ -14,6 +14,9 @@ function getApi(requestUrl) {
     
 }
 
-var requestURL = 'https://roll-dice1.p.rapidapi.com/rollDice/?rapidapi-key=a652a06e19msh2f6363022ab93a8p1108bejsn7f3bb112893f';
+var diceUrl = 'https://roll-dice1.p.rapidapi.com/rollDice/?rapidapi-key=a652a06e19msh2f6363022ab93a8p1108bejsn7f3bb112893f';
+var jokeUrl = 'https://geek-jokes.sameerkumar.website/api?format=json';
 
-getApi(requestURL);
+getApi(diceUrl);
+getApi(jokeUrl);
+
