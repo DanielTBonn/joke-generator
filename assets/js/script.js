@@ -28,34 +28,72 @@ function getJokeApi(requestUrl, roll) {
         })
         .then(function(data) {
             console.log(data.joke);
+            // This below line is for testing, will delete later
+            appendStorage(data.joke);
             return data;
         })
+    // This is for testing, but as a side note I have no idea why but we need this line below if we want to save to localStorage
+    setStorage(jokesArr);
     }
 
  }
 
-getDiceApi(diceUrl);
 
 // Creates the jokes object
-let jokes = {
-    jokeOne: "one",
-    jokeTwo: "two"
-}
+// let jokes = {
+//     jokeOne: "one",
+//     jokeTwo: "two"
+// }
 
-// Converts jokes to string (this step might not be neccessary)
-let jokesString = JSON.stringify(jokes);
+// Created a jokes array for testing
+let jokesArr = [];
+
+// grabs jokes from API
+getDiceApi(diceUrl);
 
 // Stores jokes in local storage
-localStorage.setItem("jokes", jokesString);
-console.log(jokesString);
+function setStorage(jokes) {   
+    // Converts jokes to be JSON readable
+    let jokesString = JSON.stringify(jokes);
+    localStorage.setItem("jokes", jokesString);
+}
 
 // Creates a variable that converts string back to an object
-let jokesDeString = JSON.parse(localStorage.getItem("jokes"));
-console.log(jokesDeString);
+function getStorage() {
+    let jokesDeString = JSON.parse(localStorage.getItem("jokes"));
+    return jokesDeString;
+}
+
+// appends a new joke to localStorage, use this for saving jokes
+function appendStorage(newJoke) {
+    if (!localStorage.getItem("jokes")) {
+        jokesArr = []
+    } else {
+        jokesArr = getStorage();
+    }
+
+    jokesArr.push(newJoke);
+
+    setStorage(jokesArr);
+    console.log(localStorage)
+}
 
 // Delete button will remove from local storage
 // localStorage.removeItem();
 
+// Clear localStorage every time the script is rerun so our localStorage doesn't blow up 
+localStorage.clear();
+
+
+
+
+// add event listener for a button that will generate items to the page
+
+// add event listener for a button that saves a joke
+
+// add event listener for a button that deletes a joke 
+
+// add a function that displays locally stored items to saved-jokes page
 
 
 // dice list value input creates the inputlist for 
@@ -70,3 +108,5 @@ submit.addEventListener('click', function(){
         document.querySelector('ol').appendChild(inputlist);
     }
 })
+
+// add a function that displays locally stored items to saved-jokes page
