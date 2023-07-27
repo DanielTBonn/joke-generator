@@ -54,4 +54,19 @@ let jokesDeString = JSON.parse(localStorage.getItem("jokes"));
 console.log(jokesDeString);
 
 // Delete button will remove from local storage
-localStorage.removeItem();
+// localStorage.removeItem();
+
+
+
+// dice list value input creates the inputlist for 
+var diceEl = document.getElementById('diceEx');
+var submit = document.getElementById('submitBtn');
+
+submit.addEventListener('click', function(){
+    var dicelist = diceEl.value;
+    console.log(dicelist);
+    for (var index = 0; index < dicelist; index++) {
+         var inputlist = document.createElement('li');
+        document.querySelector('ol').appendChild(inputlist);
+    }
+})
