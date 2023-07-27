@@ -83,3 +83,5 @@ function appendStorage(newJoke) {
 
 // Clear localStorage every time the script is rerun so our localStorage doesn't blow up 
 localStorage.clear();
+
+// 
