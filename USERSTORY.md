@@ -22,3 +22,22 @@ For the web pages we will want to be able to click back and forth to see old sav
 On the joke generator webpage we will want to see all the jokes pop up and the previous jokes dissappear when you click the generator button, AND you will want 
 to save those jokes to localStorage.
 On the old joke viewer page, we will want to view all of the old jokes, and we will want to be able to delete them. 
+
+
+# JS stuff
+We already have the API
+We have already developed functionality to retrieve local storage
+
+We need a button eventListener to add list items to the page
+We need another button eventListener to save to localStorage when clicked
+We need another button eventListener to delete a joke from localStorage when clicked
+We will need function to display locally stored jokes to a page
+
+# CSS Framework 
+
+Use https://materializecss.com/pickers.html as CSS framework
+
+Use materializecss to create a navbar/header on both webpages
+Use materialize to create a list on the generate joke page
+Use materialize to create a list of saved jokes on the old jokes page
+
