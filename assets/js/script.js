@@ -94,3 +94,19 @@ localStorage.clear();
 // add event listener for a button that deletes a joke 
 
 // add a function that displays locally stored items to saved-jokes page
+
+
+// dice list value input creates the inputlist for 
+var diceEl = document.getElementById('diceEx');
+var submit = document.getElementById('submitBtn');
+
+submit.addEventListener('click', function(){
+    var dicelist = diceEl.value;
+    console.log(dicelist);
+    for (var index = 0; index < dicelist; index++) {
+         var inputlist = document.createElement('li');
+        document.querySelector('ol').appendChild(inputlist);
+    }
+})
+
+// add a function that displays locally stored items to saved-jokes page
