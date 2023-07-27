@@ -84,4 +84,13 @@ function appendStorage(newJoke) {
 // Clear localStorage every time the script is rerun so our localStorage doesn't blow up 
 localStorage.clear();
 
-// 
+
+
+
+// add event listener for a button that will generate items to the page
+
+// add event listener for a button that saves a joke
+
+// add event listener for a button that deletes a joke 
+
+// add a function that displays locally stored items to saved-jokes page
