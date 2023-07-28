@@ -96,6 +96,7 @@ function addJokes(joke) {
     var listEl = $('<li id="test-item-generated"></li>')
     var paraEl = $('<p style="color: rgb(24,231,28)"></p>');
     var btnEl = $('<button id="saveBtn">Save</button>');
+    initializeSaveButton(btnEl);
     paraEl.text(joke);
     listEl.append(paraEl);
     listEl.append(btnEl);
@@ -106,7 +107,7 @@ function addJokes(joke) {
 
 // add event listener for a button that deletes a joke 
 console.log(jokesList);
-console.log(jokesList.children().eq(0))
+console.log(jokesList.children().eq(0));
 
 jokesList.each(function() {
     initializeSaveButton($(this));
@@ -116,7 +117,8 @@ function initializeSaveButton(button) {
     
     button.on('click', function() {
         var userInput = $(this).children().eq(0).text();
-        console.log(userInput);
+        appendStorage(userInput);
+        console.log(localStorage)
     })
 }
 
