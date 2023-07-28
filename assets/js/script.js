@@ -49,7 +49,6 @@ function getJokeApi(requestUrl, roll) {
 let jokesArr = [];
 
 // grabs jokes from API
-getDiceApi(diceUrl);
 
 // Stores jokes in local storage
 function setStorage(jokes) {   
@@ -88,10 +87,29 @@ localStorage.clear();
 
 
 // add event listener for a button that will generate items to the page
+var generateJokes = $("#jokes-gen-btn");
+generateJokes.on('click', function() {
+    getDiceApi(diceUrl);
 
-// add event listener for a button that saves a joke
+})
 
 // add event listener for a button that deletes a joke 
+var jokesList = $("#jokes-list").children();
+console.log(jokesList);
+
+jokesList.each(function() {
+    initializeSaveButton($(this).children());
+})
+
+function initializeSaveButton(button){
+    
+    button.on('click', function() {
+        var userInput = $(this).parent().text();
+        console.log(userInput);
+    })
+}
+
+// add event listener for a button that saves a joke
 
 // add a function that displays locally stored items to saved-jokes page
 
@@ -100,13 +118,11 @@ localStorage.clear();
 var diceEl = document.getElementById('diceEx');
 var submit = document.getElementById('submitBtn');
 
-submit.addEventListener('click', function(){
-    var dicelist = diceEl.value;
-    console.log(dicelist);
-    for (var index = 0; index < dicelist; index++) {
-         var inputlist = document.createElement('li');
-        document.querySelector('ol').appendChild(inputlist);
-    }
-})
-
-// add a function that displays locally stored items to saved-jokes page
+// submit.addEventListener('click', function(){
+//     var dicelist = diceEl.value;
+//     console.log(dicelist);
+//     for (var index = 0; index < dicelist; index++) {
+//          var inputlist = document.createElement('li');
+//         document.querySelector('ol').appendChild(inputlist);
+//     }
+// })
