@@ -104,7 +104,7 @@ jokesList.each(function() {
 function initializeSaveButton(button){
     
     button.on('click', function() {
-        var userInput = $(this).parent().text();
+        var userInput = $(this).parent().children().eq(0).text();
         console.log(userInput);
     })
 }
