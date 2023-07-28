@@ -70,9 +70,9 @@ function appendStorage(newJoke) {
     } else {
         jokesArr = getStorage();
     }
-    
+
     jokesArr.push(newJoke);
-    
+
     setStorage(jokesArr);
     console.log(localStorage)
 }
@@ -120,6 +120,11 @@ function initializeSaveButton(button) {
 
 // add event listener for a button that saves a joke
 
+<<<<<<< HEAD
+=======
+// add event listener for a button that deletes a joke 
+
+>>>>>>> 8bdaeb53211dcfb5f33ddc3f6bfde0aa4ebb5449
 // add a function that displays locally stored items to saved-jokes page
 
 
@@ -127,6 +132,7 @@ function initializeSaveButton(button) {
 var diceEl = document.getElementById('diceEx');
 var submit = document.getElementById('submitBtn');
 
+<<<<<<< HEAD
 // submit.addEventListener('click', function(){
 //     var dicelist = diceEl.value;
 //     console.log(dicelist);
@@ -135,3 +141,15 @@ var submit = document.getElementById('submitBtn');
 //         document.querySelector('ol').appendChild(inputlist);
 //     }
 // })
+=======
+submit.addEventListener('click', function(){
+    var dicelist = diceEl.value;
+    console.log(dicelist);
+    for (var index = 0; index < dicelist; index++) {
+         var inputlist = document.createElement('li');
+        document.querySelector('ol').appendChild(inputlist);
+    }
+})
+
+// add a function that displays locally stored items to saved-jokes page
+>>>>>>> 8bdaeb53211dcfb5f33ddc3f6bfde0aa4ebb5449
