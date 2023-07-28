@@ -83,9 +83,6 @@ function appendStorage(newJoke) {
 // Clear localStorage every time the script is rerun so our localStorage doesn't blow up 
 localStorage.clear();
 
-
-
-
 // add event listener for a button that will generate items to the page
 var generateJokes = $("#jokes-gen-btn");
 generateJokes.on('click', function() {
@@ -93,18 +90,26 @@ generateJokes.on('click', function() {
 
 })
 
-// add event listener for a button that deletes a joke 
 var jokesList = $("#jokes-list").children();
+function addJokes(joke) {
+    jokesList.children().eq(0).text("Hello");
+}
+
+addJokes("joke");
+
+
+// add event listener for a button that deletes a joke 
 console.log(jokesList);
+console.log(jokesList.children().eq(0))
 
 jokesList.each(function() {
-    initializeSaveButton($(this).children());
+    initializeSaveButton($(this));
 })
 
-function initializeSaveButton(button){
+function initializeSaveButton(button) {
     
     button.on('click', function() {
-        var userInput = $(this).parent().children().eq(0).text();
+        var userInput = $(this).children().eq(0).text();
         console.log(userInput);
     })
 }
