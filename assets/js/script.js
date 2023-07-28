@@ -70,9 +70,9 @@ function appendStorage(newJoke) {
     } else {
         jokesArr = getStorage();
     }
-
+    
     jokesArr.push(newJoke);
-
+    
     setStorage(jokesArr);
     console.log(localStorage)
 }
