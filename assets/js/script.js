@@ -30,6 +30,7 @@ function getJokeApi(requestUrl, roll) {
             console.log(data.joke);
             // This below line is for testing, will delete later
             appendStorage(data.joke);
+            addJokes(data.joke);
             return data;
         })
     // This is for testing, but as a side note I have no idea why but we need this line below if we want to save to localStorage
@@ -92,14 +93,15 @@ generateJokes.on('click', function() {
 
 var jokesList = $("#jokes-list").children();
 function addJokes(joke) {
-    var listEl = document.createElement('li');
-    var paraEl = document.createElement('p');
-    var btnEl = document.createElement('button');
-    
-    jokesList.children().eq(0).text("Hello");
+    var listEl = $('<li id="test-item-generated"></li>')
+    var paraEl = $('<p style="color: rgb(24,231,28)"></p>');
+    var btnEl = $('<button id="saveBtn">Save</button>');
+    paraEl.text(joke);
+    listEl.append(paraEl);
+    listEl.append(btnEl);
+    $("#jokes-list").append(listEl)
 }
 
-addJokes("joke");
 
 
 // add event listener for a button that deletes a joke 
@@ -120,11 +122,6 @@ function initializeSaveButton(button) {
 
 // add event listener for a button that saves a joke
 
-<<<<<<< HEAD
-=======
-// add event listener for a button that deletes a joke 
-
->>>>>>> 8bdaeb53211dcfb5f33ddc3f6bfde0aa4ebb5449
 // add a function that displays locally stored items to saved-jokes page
 
 
@@ -132,7 +129,6 @@ function initializeSaveButton(button) {
 var diceEl = document.getElementById('diceEx');
 var submit = document.getElementById('submitBtn');
 
-<<<<<<< HEAD
 // submit.addEventListener('click', function(){
 //     var dicelist = diceEl.value;
 //     console.log(dicelist);
@@ -141,15 +137,3 @@ var submit = document.getElementById('submitBtn');
 //         document.querySelector('ol').appendChild(inputlist);
 //     }
 // })
-=======
-submit.addEventListener('click', function(){
-    var dicelist = diceEl.value;
-    console.log(dicelist);
-    for (var index = 0; index < dicelist; index++) {
-         var inputlist = document.createElement('li');
-        document.querySelector('ol').appendChild(inputlist);
-    }
-})
-
-// add a function that displays locally stored items to saved-jokes page
->>>>>>> 8bdaeb53211dcfb5f33ddc3f6bfde0aa4ebb5449
