@@ -71,9 +71,9 @@ function appendStorage(newJoke) {
     } else {
         jokesArr = getStorage();
     }
-
+    
     jokesArr.push(newJoke);
-
+    
     setStorage(jokesArr);
     console.log(localStorage)
 }
@@ -90,9 +90,20 @@ localStorage.clear();
 // add event listener for a button that will generate items to the page
 
 // add event listener for a button that saves a joke
-
-// add event listener for a button that deletes a joke 
-
+// var saveButton = document.getElementsByClassName('saveBtn');
+// saveButton.addEventListener('click',
+//     // Stores jokes in local storage
+//     function setStorage(jokes) {   
+//         // Converts jokes to be JSON readable
+//         let jokesString = JSON.stringify(jokes);
+//         localStorage.setItem("jokes", jokesString);
+//     });
+    // add event listener for a button that deletes a joke 
+    // var deleteButton = document.getElementsByClassName('deleteBtn');
+    // deleteButton.addEventListener('click', function() {
+    //     $(this).parent().remove();
+    //     console.log('you clicked delete');
+    // });
 // add a function that displays locally stored items to saved-jokes page
 
 
@@ -102,11 +113,11 @@ var submit = document.getElementById('submitBtn');
 
 submit.addEventListener('click', function(){
     var dicelist = diceEl.value;
-    console.log(dicelist);
     for (var index = 0; index < dicelist; index++) {
          var inputlist = document.createElement('li');
         document.querySelector('ol').appendChild(inputlist);
     }
+   
 })
 
 // add a function that displays locally stored items to saved-jokes page
