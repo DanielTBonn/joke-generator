@@ -92,6 +92,10 @@ generateJokes.on('click', function() {
 
 var jokesList = $("#jokes-list").children();
 function addJokes(joke) {
+    var listEl = document.createElement('li');
+    var paraEl = document.createElement('p');
+    var btnEl = document.createElement('button');
+    
     jokesList.children().eq(0).text("Hello");
 }
 
