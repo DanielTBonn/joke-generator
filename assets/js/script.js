@@ -125,7 +125,21 @@ function initializeSaveButton(button) {
 
 // add event listener for a button that deletes a joke 
 
+function deleteButton(){
+$(button).button().on('click', function() {
+    $('li').remove();
+  });
+}
 // add a function that displays locally stored items to saved-jokes page
+
+function displaySavedJokes(){
+    let localJokes = JSON.parse(localStorage.getItem('jokes'));
+    let unorderedlist = document.getElementById('saved-jokes-list');
+    for (i = 0; i > localJokes.Length; i++){
+    ul.appendChild(li);
+    }
+}
+
 
 
 
