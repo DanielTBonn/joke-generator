@@ -6,25 +6,38 @@
         <title>Group Project</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
         <link rel="stylesheet" href="./assets/css/style.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
     </head>
-    <body>
+    <body class="black">
         <header>
             <!-- Put a navbar in here with an anchor element linking to ambers.html  -->
+            <nav>
+                <div class="nav-wrapper light-green darken-4">
+                    <a href="#" class="brand-logo lime-text text-lighten-2">Joke Generator</a>
+                    <ul id="nav-mobile" class="right ">
+                        <li><a href="index.html">index.html</a></li>
+                        <li><a href="ambers.html">ambers.html</a></li>
+                    </ul>
+                </div>
+            </nav>
         </header>
-        <h2>CSS Framework</h2>
+        <h2 class="pink-text text-accent-3">CSS Framework:</h2>
         <p><a href="https://materializecss.com/pickers.html" target="_blank">https://materializecss.com/pickers.html</a></p>
         
         <!-- here is where we will list out jokes we grab from our api -->
         <section id="jokes-section">
             <ul id="jokes-list">
-                <li id="test-item-generated">This item is for testing</li>
+
                 <!-- We will need js to add in the jokes one at a time but we should develop what we want them to look like using materializecss -->
                 <!-- Each joke will need to have a button that we will use to save to localStorage -->
             </ul>
+            <button id="jokes-gen-btn">Generate</button>
 
             <!-- Here we will add a generate button for the jokes which will call respond to an event listener in js -->
         </section>
+        <script src="./assets/js/script.js" ></script>
 
-     
     </body>
 </html>

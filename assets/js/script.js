@@ -30,6 +30,7 @@ function getJokeApi(requestUrl, roll) {
             console.log(data.joke);
             // This below line is for testing, will delete later
             appendStorage(data.joke);
+            addJokes(data.joke);
             return data;
         })
     // This is for testing, but as a side note I have no idea why but we need this line below if we want to save to localStorage
@@ -49,7 +50,6 @@ function getJokeApi(requestUrl, roll) {
 let jokesArr = [];
 
 // grabs jokes from API
-getDiceApi(diceUrl);
 
 // Stores jokes in local storage
 function setStorage(jokes) {   
@@ -84,14 +84,43 @@ function appendStorage(newJoke) {
 // Clear localStorage every time the script is rerun so our localStorage doesn't blow up 
 localStorage.clear();
 
-
-
-
 // add event listener for a button that will generate items to the page
+var generateJokes = $("#jokes-gen-btn");
+generateJokes.on('click', function() {
+    getDiceApi(diceUrl);
 
-// add event listener for a button that saves a joke
+})
+
+var jokesList = $("#jokes-list").children();
+function addJokes(joke) {
+    var listEl = $('<li id="test-item-generated"></li>')
+    var paraEl = $('<p style="color: rgb(24,231,28)"></p>');
+    var btnEl = $('<button id="saveBtn">Save</button>');
+    paraEl.text(joke);
+    listEl.append(paraEl);
+    listEl.append(btnEl);
+    $("#jokes-list").append(listEl)
+}
+
+
 
 // add event listener for a button that deletes a joke 
+console.log(jokesList);
+console.log(jokesList.children().eq(0))
+
+jokesList.each(function() {
+    initializeSaveButton($(this));
+})
+
+function initializeSaveButton(button) {
+    
+    button.on('click', function() {
+        var userInput = $(this).children().eq(0).text();
+        console.log(userInput);
+    })
+}
+
+// add event listener for a button that saves a joke
 
 function deleteButton(){
 $(button).button().on('click', function() {
@@ -114,11 +143,11 @@ function displaySavedJokes(){
 var diceEl = document.getElementById('diceEx');
 var submit = document.getElementById('submitBtn');
 
-submit.addEventListener('click', function(){
-    var dicelist = diceEl.value;
-    console.log(dicelist);
-    for (var index = 0; index < dicelist; index++) {
-         var inputlist = document.createElement('li');
-        document.querySelector('ol').appendChild(inputlist);
-    }
-})
+// submit.addEventListener('click', function(){
+//     var dicelist = diceEl.value;
+//     console.log(dicelist);
+//     for (var index = 0; index < dicelist; index++) {
+//          var inputlist = document.createElement('li');
+//         document.querySelector('ol').appendChild(inputlist);
+//     }
+// })
