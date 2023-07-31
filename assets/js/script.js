@@ -86,8 +86,7 @@ var generateJokes = $("#jokes-gen-btn");
 generateJokes.on('click', function() {
     // getDiceApi calls getJokeApi so only one function is needed
     getDiceApi(diceUrl);
-
-// })
+})
 
 
 
@@ -154,4 +153,4 @@ function initializeSaveButton(button) {
 // Jokes Stored in localStorage need to be appended to the saved page
 // Jokes stored in localStorage must have an option to be deleted and when deleted will be taken out of localStorage
 
-// dummy comments
+// dummy comments 

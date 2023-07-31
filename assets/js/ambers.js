@@ -2,17 +2,18 @@
 
 function displayJokes(){
 
-    var listEl = document.getElementById("saved-jokes-list");
+    var listEl = $("#saved-jokes-list");
     var listItemText = JSON.parse(localStorage.getItem("jokes"));
-    var listItemEl = document.createElement('li');
-    var deleteBtn = document.createElement('button').
-    deleteBtn.textContent = 'delete';
+    var deleteBtn = $('<button id="delBtn">Delete</button>');
+    console.log(listItemText);
     
-        for(var i = 0; i < listItemText.length; i++){
-            listItemEl.textContent = listItemText[i];
-            listEl.append(listItemEl);
-            listEl.append(deleteBtn);
-        }
+    for (let i = 0; i < listItemText.length; i++) {
+        var listItemEl = $('<li>');
+        listItemEl.text(listItemText[i]);
+        console.log(listItemEl);
+        listEl.append(listItemEl);
+        listEl.append(deleteBtn);
     }
+}
     
-    displayJokes();
+displayJokes();
