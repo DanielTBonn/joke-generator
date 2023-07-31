@@ -22,7 +22,7 @@ function getDiceApi(requestUrl) {
 function getJokeApi(requestUrl, roll) {
 
     // DELETE THIS LINE IF YOU WANT PERSISTENT LOCALSTORAGE, IT WILL DELETE ALL OF OUR SAVED JOKES EVERYTIME THE PAGE IS RELOADED
-    localStorage.clear();
+    // localStorage.clear();
 
     for (i = 0; i < roll; i++) {
         fetch(requestUrl) 
@@ -110,7 +110,6 @@ console.log(jokesList.children().eq(0));
 jokesList.each(function() {
     // This function below is important to understand how it works
     initializeSaveButton($(this));
-    initializeDeleteButton($(this));
 })
 
 
@@ -126,19 +125,6 @@ function initializeSaveButton(button) {
 
 // add event listener for a button that deletes a joke 
 
-// add a function that displays locally stored items to saved-jokes page
-
-function displayJokes(){
-
-var listEl = document.getElementById("saved-jokes-list");
-var listItemText = JSON.parse(localStorage.getItem("jokes"));
-var listItemEl = document.createElement('li');
-
-    for(var i = 0; i < listItemText.length; i++){
-        listItemEl.textContent = listItemText[i];
-        listEl.appendChild(listItemEl);
-    }
-}
 
 
 
