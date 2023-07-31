@@ -22,7 +22,7 @@ function getDiceApi(requestUrl) {
 function getJokeApi(requestUrl, roll) {
 
     // DELETE THIS LINE IF YOU WANT PERSISTENT LOCALSTORAGE, IT WILL DELETE ALL OF OUR SAVED JOKES EVERYTIME THE PAGE IS RELOADED
-    localStorage.clear();
+    // localStorage.clear();
 
     for (i = 0; i < roll; i++) {
         fetch(requestUrl) 
@@ -86,11 +86,11 @@ var generateJokes = $("#jokes-gen-btn");
 generateJokes.on('click', function() {
     // getDiceApi calls getJokeApi so only one function is needed
     getDiceApi(diceUrl);
-
 })
 
-// This function will add jokes to the page, it is called in the getJokeApi function
-var jokesList = $("#jokes-list").children();
+
+
+// var jokesList = $("#jokes-list").children();
 function addJokes(joke) {
     var listEl = $('<li id="test-item-generated"></li>')
     var paraEl = $('<p style="color: rgb(24,231,28)"></p>');
@@ -102,15 +102,15 @@ function addJokes(joke) {
     $("#jokes-list").append(listEl)
 }
 
-// Test code we can delete 
-console.log(jokesList);
-console.log(jokesList.children().eq(0));
 
-// add event listener for a button that saves a joke
-jokesList.each(function() {
-    // This function below is important to understand how it works
-    initializeSaveButton($(this));
-})
+
+// add event listener for a button that deletes a joke 
+// console.log(jokesList);
+// console.log(jokesList.children().eq(0))
+
+// jokesList.each(function() {
+//     initializeSaveButton($(this));
+// })
 
 
 // Every time a new button is appended to the page, you HAVE to have this function call it so the page recognizes what it does
@@ -125,20 +125,6 @@ function initializeSaveButton(button) {
 
 // add event listener for a button that deletes a joke 
 
-function deleteButton(){
-$(button).button().on('click', function() {
-    $('li').remove();
-  });
-}
-// add a function that displays locally stored items to saved-jokes page
-
-function displaySavedJokes(){
-    let localJokes = JSON.parse(localStorage.getItem('jokes'));
-    let unorderedlist = document.getElementById('saved-jokes-list');
-    for (i = 0; i > localJokes.Length; i++){
-    ul.appendChild(li);
-    }
-}
 
 
 
@@ -167,4 +153,4 @@ function displaySavedJokes(){
 // Jokes Stored in localStorage need to be appended to the saved page
 // Jokes stored in localStorage must have an option to be deleted and when deleted will be taken out of localStorage
 
-// dummy comments
+// dummy comments 
