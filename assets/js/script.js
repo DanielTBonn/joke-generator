@@ -104,12 +104,13 @@ function addJokes(joke) {
 
 
 
-// add event listener for a button that deletes a joke 
+// add event listener for a button that saves a joke 
 console.log(jokesList);
 console.log(jokesList.children().eq(0))
 
 jokesList.each(function() {
     initializeSaveButton($(this));
+    initializeDeleteButton($(this));
 })
 
 function initializeSaveButton(button) {
@@ -120,7 +121,7 @@ function initializeSaveButton(button) {
     })
 }
 
-// add event listener for a button that saves a joke
+// add event listener for a button that deletes a joke
 
 // add a function that displays locally stored items to saved-jokes page
 
@@ -135,7 +136,7 @@ var listItemEl = document.createElement('li');
         listEl.appendChild(listItemEl);
     }
 }
-console.log(listItemEl)
+
 displayJokes();
 
 // dice list value input creates the inputlist for 
