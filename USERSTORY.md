@@ -25,19 +25,21 @@ On the old joke viewer page, we will want to view all of the old jokes, and we w
 
 
 ## JS stuff
-We already have the API
-We have already developed functionality to retrieve local storage
 
-We need a button eventListener to add list items to the page
-We need another button eventListener to save to localStorage when clicked
 We need another button eventListener to delete a joke from localStorage when clicked
-We will need function to display locally stored jokes to a page
+We will need function to display locally stored jokes to the saved jokes page
 
 ## CSS Framework 
 
 Use https://materializecss.com/pickers.html as CSS framework
 
-Use materializecss to create a navbar/header on both webpages
-Use materialize to create a list on the generate joke page
-Use materialize to create a list of saved jokes on the old jokes page
+Use materialize to create a list on the generate joke page -- we will add to the li properties whatever values we might need
+Use materialize to create a list of saved jokes on the saved jokes page -- same sidenote as above
 
+## DONE
+
+We already have the API
+We have already developed functionality to retrieve local storage
+We need a button eventListener to add list items to the generator page
+We need another button eventListener to save to localStorage when clicked
+Use materializecss to create a navbar/header on both webpages
