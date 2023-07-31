@@ -84,6 +84,7 @@ function appendStorage(newJoke) {
 // This button will generate items to the page
 var generateJokes = $("#jokes-gen-btn");
 generateJokes.on('click', function() {
+    $('ul').empty();
     // getDiceApi calls getJokeApi so only one function is needed
     getDiceApi(diceUrl);
 })
@@ -148,9 +149,7 @@ function initializeSaveButton(button) {
                             // // // // // // // // // // // // // // //
 
 
-// Rename the .html files
-// Every time the generate button is pressed, old jokes need to be deleted from the page before the new jokes are posted
-// Jokes Stored in localStorage need to be appended to the saved page
+
 // Jokes stored in localStorage must have an option to be deleted and when deleted will be taken out of localStorage
 
 // dummy comments 
