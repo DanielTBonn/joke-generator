@@ -4,18 +4,18 @@ var jokeUrl = 'https://geek-jokes.sameerkumar.website/api?format=json';
 
 // gets the dice roll from our dice API
 function getDiceApi(requestUrl) {
-
-   fetch(requestUrl) 
-        .then(function(response) {
-            return response.json();
-        })
+    
+    fetch(requestUrl) 
+    .then(function(response) {
+        return response.json();
+    })
         .then(function(data) {
             var roll = data.data.Dice
             console.log(roll);
             getJokeApi(jokeUrl, roll);
             return data;
         })
-    
+        
 }
 
 // gets the jokes per number of roll from the jokes api
@@ -33,8 +33,17 @@ function getJokeApi(requestUrl, roll) {
             addJokes(data.joke);
             return data;
         })
-    // This is for testing, but as a side note I have no idea why but we need this line below if we want to save to localStorage
-    setStorage(jokesArr);
+
+        // submit.addEventListener('click', function(){
+        //     var dicelist = diceEl.value;
+        //     console.log(dicelist);
+        //     for (var index = 0; index < dicelist; index++) {
+        //          var inputlist = document.createElement('li');
+        //         document.querySelector('ol').appendChild(inputlist);
+        //     }
+        // })
+        // This is for testing, but as a side note I have no idea why but we need this line below if we want to save to localStorage
+        setStorage(jokesArr);
     }
 
  }
@@ -103,10 +112,10 @@ function addJokes(joke) {
 }
 
 
-
-// add event listener for a button that deletes a joke 
 console.log(jokesList);
 console.log(jokesList.children().eq(0))
+
+// add event listener for a button that saves a joke
 
 jokesList.each(function() {
     initializeSaveButton($(this));
@@ -120,8 +129,8 @@ function initializeSaveButton(button) {
     })
 }
 
-// add event listener for a button that saves a joke
 
+// add event listener for a button that deletes a joke 
 function deleteButton(){
 $(button).button().on('click', function() {
     $('li').remove();
@@ -143,11 +152,3 @@ function displaySavedJokes(){
 var diceEl = document.getElementById('diceEx');
 var submit = document.getElementById('submitBtn');
 
-// submit.addEventListener('click', function(){
-//     var dicelist = diceEl.value;
-//     console.log(dicelist);
-//     for (var index = 0; index < dicelist; index++) {
-//          var inputlist = document.createElement('li');
-//         document.querySelector('ol').appendChild(inputlist);
-//     }
-// })
