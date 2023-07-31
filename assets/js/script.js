@@ -85,13 +85,15 @@ function appendStorage(newJoke) {
 localStorage.clear();
 
 // add event listener for a button that will generate items to the page
-var generateJokes = $("#jokes-gen-btn");
-generateJokes.on('click', function() {
-    getDiceApi(diceUrl);
+// var generateJokes = $("#jokes-gen-btn");
+// generateJokes.on('click', function() {
+//     getDiceApi(diceUrl);
 
-})
+// })
 
-var jokesList = $("#jokes-list").children();
+
+
+// var jokesList = $("#jokes-list").children();
 function addJokes(joke) {
     var listEl = $('<li id="test-item-generated"></li>')
     var paraEl = $('<p style="color: rgb(24,231,28)"></p>');
@@ -105,12 +107,12 @@ function addJokes(joke) {
 
 
 // add event listener for a button that deletes a joke 
-console.log(jokesList);
-console.log(jokesList.children().eq(0))
+// console.log(jokesList);
+// console.log(jokesList.children().eq(0))
 
-jokesList.each(function() {
-    initializeSaveButton($(this));
-})
+// jokesList.each(function() {
+//     initializeSaveButton($(this));
+// })
 
 function initializeSaveButton(button) {
     
