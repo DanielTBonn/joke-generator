@@ -136,8 +136,8 @@ var listItemEl = document.createElement('li');
         listItemEl.textContent = listItemText[i];
         listEl.appendChild(listItemEl);
     }
+    console.log(listItemEl)
 }
-console.log(listItemEl)
 displayJokes();
 
 // dice list value input creates the inputlist for 
