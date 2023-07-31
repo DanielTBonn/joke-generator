@@ -82,7 +82,7 @@ function appendStorage(newJoke) {
 // localStorage.removeItem();
 
 // Clear localStorage every time the script is rerun so our localStorage doesn't blow up 
-localStorage.clear();
+// localStorage.clear();
 
 // add event listener for a button that will generate items to the page
 // var generateJokes = $("#jokes-gen-btn");
@@ -124,22 +124,21 @@ function initializeSaveButton(button) {
 
 // add event listener for a button that saves a joke
 
-function deleteButton(){
-$(button).button().on('click', function() {
-    $('li').remove();
-  });
-}
 // add a function that displays locally stored items to saved-jokes page
 
-function displaySavedJokes(){
-    let localJokes = JSON.parse(localStorage.getItem('jokes'));
-    let unorderedlist = document.getElementById('saved-jokes-list');
-    for (i = 0; i > localJokes.Length; i++){
-    ul.appendChild(li);
+function displayJokes(){
+
+var listEl = document.getElementById("saved-jokes-list");
+var listItemText = JSON.parse(localStorage.getItem("jokes"));
+var listItemEl = document.createElement('li');
+
+    for(var i = 0; i < listItemText.length; i++){
+        listItemEl.textContent = listItemText[i];
+        listEl.appendChild(listItemEl);
     }
 }
-
-
+console.log(listItemEl)
+displayJokes();
 
 // dice list value input creates the inputlist for 
 var diceEl = document.getElementById('diceEx');
