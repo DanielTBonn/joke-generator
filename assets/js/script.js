@@ -22,7 +22,7 @@ function getDiceApi(requestUrl) {
 function getJokeApi(requestUrl, roll) {
 
     // DELETE THIS LINE IF YOU WANT PERSISTENT LOCALSTORAGE, IT WILL DELETE ALL OF OUR SAVED JOKES EVERYTIME THE PAGE IS RELOADED
-    localStorage.clear();
+    // localStorage.clear();
 
     for (i = 0; i < roll; i++) {
         fetch(requestUrl) 
@@ -81,16 +81,11 @@ function appendStorage(newJoke) {
     console.log(localStorage)
 }
 
-// Delete button will remove from local storage
-// localStorage.removeItem();
-
-// Clear localStorage every time the script is rerun so our localStorage doesn't blow up 
-// localStorage.clear();
-
-// add event listener for a button that will generate items to the page
-// var generateJokes = $("#jokes-gen-btn");
-// generateJokes.on('click', function() {
-//     getDiceApi(diceUrl);
+// This button will generate items to the page
+var generateJokes = $("#jokes-gen-btn");
+generateJokes.on('click', function() {
+    // getDiceApi calls getJokeApi so only one function is needed
+    getDiceApi(diceUrl);
 
 // })
 
@@ -131,21 +126,8 @@ function initializeSaveButton(button) {
 
 // add event listener for a button that deletes a joke 
 
-// add a function that displays locally stored items to saved-jokes page
 
-function displayJokes(){
 
-var listEl = document.getElementById("saved-jokes-list");
-var listItemText = JSON.parse(localStorage.getItem("jokes"));
-var listItemEl = document.createElement('li');
-
-    for(var i = 0; i < listItemText.length; i++){
-        listItemEl.textContent = listItemText[i];
-        listEl.appendChild(listItemEl);
-    }
-    console.log(listItemEl)
-}
-displayJokes();
 
 
 // dice list value input creates the inputlist for 
