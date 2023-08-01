@@ -4,22 +4,23 @@ var jokeUrl = 'https://geek-jokes.sameerkumar.website/api?format=json';
 
 // gets the dice roll from our dice API
 function getDiceApi(requestUrl) {
-
-   fetch(requestUrl) 
-        .then(function(response) {
-            return response.json();
-        })
+    
+    fetch(requestUrl) 
+    .then(function(response) {
+        return response.json();
+    })
         .then(function(data) {
             var roll = data.data.Dice
             console.log(roll);
             getJokeApi(jokeUrl, roll);
             return data;
         })
-    
+        
 }
 
 // gets the jokes per number of roll from the jokes api
 function getJokeApi(requestUrl, roll) {
+    
 
     // DELETE THIS LINE IF YOU WANT PERSISTENT LOCALSTORAGE, IT WILL DELETE ALL OF OUR SAVED JOKES EVERYTIME THE PAGE IS RELOADED
     // localStorage.clear();
@@ -36,18 +37,14 @@ function getJokeApi(requestUrl, roll) {
             addJokes(data.joke);
             return data;
         })
-    // This is for testing, but as a side note I have no idea why but we need this line below if we want to save to localStorage
-    setStorage(jokesArr);
+        
+        // This is for testing, but as a side note I have no idea why but we need this line below if we want to save to localStorage
+        setStorage(jokesArr);
     }
+    
+}
 
- }
 
-
-// Creates the jokes object -- this could be better to use than an array in localStorage but im not really sure
-// let jokes = {
-//     jokeOne: "one",
-//     jokeTwo: "two"
-// }
 
 // Created a jokes array for testing
 let jokesArr = [];
@@ -74,9 +71,9 @@ function appendStorage(newJoke) {
     } else {
         jokesArr = getStorage();
     }
-
+    
     jokesArr.push(newJoke);
-
+    
     setStorage(jokesArr);
     console.log(localStorage)
 }
@@ -84,16 +81,18 @@ function appendStorage(newJoke) {
 // This button will generate items to the page
 var generateJokes = $("#jokes-gen-btn");
 generateJokes.on('click', function() {
-    $('ul').empty();
+
+    $('#jokes-list').empty();
     // getDiceApi calls getJokeApi so only one function is needed
     getDiceApi(diceUrl);
+
 })
 
 
 
-// var jokesList = $("#jokes-list").children();
+var jokesList = $("#jokes-list").children();
 function addJokes(joke) {
-    var listEl = $('<li id="test-item-generated"></li>')
+    var listEl = $('<li id="test-item-generated"></li>');
     var paraEl = $('<p style="color: rgb(24,231,28)"></p>');
     var btnEl = $('<button id="saveBtn">Save</button>');
     initializeSaveButton(btnEl);
@@ -104,14 +103,15 @@ function addJokes(joke) {
 }
 
 
-
-// add event listener for a button that deletes a joke 
 // console.log(jokesList);
 // console.log(jokesList.children().eq(0))
 
-// jokesList.each(function() {
-//     initializeSaveButton($(this));
-// })
+// add event listener for a button that saves a joke
+var deleteBtn = $('<button id="deleteButton">Delete</button>');
+
+jokesList.each(function() {
+    initializeSaveButton($(this));
+})
 
 
 // Every time a new button is appended to the page, you HAVE to have this function call it so the page recognizes what it does
@@ -125,7 +125,12 @@ function initializeSaveButton(button) {
 
 
 // add event listener for a button that deletes a joke 
-
+function deleteButton(){
+$(button).button().on('click', function() {
+    $('').remove();
+  });
+}
+// add a function that displays locally stored items to saved-jokes page
 
 
 
@@ -133,6 +138,7 @@ function initializeSaveButton(button) {
 // dice list value input creates the inputlist for 
 // var diceEl = document.getElementById('diceEx');
 // var submit = document.getElementById('submitBtn');
+
 
 // submit.addEventListener('click', function(){
 //     var dicelist = diceEl.value;
@@ -142,14 +148,3 @@ function initializeSaveButton(button) {
 //         document.querySelector('ol').appendChild(inputlist);
 //     }
 // })
-
-
-                            // // // // // // // // // // // // // // //
-                            // Below is what needs to be finished  // //
-                            // // // // // // // // // // // // // // //
-
-
-
-// Jokes stored in localStorage must have an option to be deleted and when deleted will be taken out of localStorage
-
-// dummy comments 
