@@ -89,7 +89,7 @@ generateJokes.on('click', function() {
 
 
 
-// var jokesList = $("#jokes-list").children();
+var jokesList = $("#jokes-list").children();
 function addJokes(joke) {
     var listEl = $('<li id="test-item-generated"></li>')
     var paraEl = $('<p style="color: rgb(24,231,28)"></p>');
@@ -102,8 +102,8 @@ function addJokes(joke) {
 }
 
 
-console.log(jokesList);
-console.log(jokesList.children().eq(0))
+// console.log(jokesList);
+// console.log(jokesList.children().eq(0))
 
 // add event listener for a button that saves a joke
 var deleteBtn = $('<button id="deleteButton">Delete</button>');
