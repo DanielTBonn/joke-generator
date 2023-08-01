@@ -95,7 +95,7 @@ generateJokes.on('click', function() {
 function addJokes(joke) {
     var listEl = $('<li id="test-item-generated"></li>')
     var paraEl = $('<p style="color: rgb(24,231,28)"></p>');
-    var btnEl = $('<button id="saveBtn">Save</button>');
+    var btnEl = $('<button id="saveBtn"style="background-color:#33691e; width:100px;"><a class="waves-effect waves-teal btn-flat lime-text text-lighten-2" style="background-color:#33691e">Save</a></button>');
     initializeSaveButton(btnEl);
     paraEl.text(joke);
     listEl.append(paraEl);

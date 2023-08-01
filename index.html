@@ -18,7 +18,7 @@
                 <div class="nav-wrapper light-green darken-4">
                     <a href="#" class="brand-logo lime-text text-lighten-2">Joke Generator</a>
                     <ul id="nav-mobile" class="right ">
-                        <li><a href="index.html">index.html</a></li>
+                        <li class="active"><a href="index.html">index.html</a></li>
                         <li><a href="savedjokes.html">savedjokes.html</a></li>
                     </ul>
                 </div>
@@ -34,7 +34,10 @@
                 <!-- We will need js to add in the jokes one at a time but we should develop what we want them to look like using materializecss -->
                 <!-- Each joke will need to have a button that we will use to save to localStorage -->
             </ul>
-            <button id="jokes-gen-btn">Generate</button>
+            <button id="jokes-gen-btn" style="background-color:#33691e">
+                <a class="waves-effect waves-teal btn-flat lime-text text-lighten-2"
+                style="background-color:#33691e">Generate</a>
+            </button>
             
             <!-- Here we will add a generate button for the jokes which will call respond to an event listener in js -->
         </section>
