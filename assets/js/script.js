@@ -13,12 +13,11 @@ function getDiceApi(requestUrl) {
         return response.json();
     })
         .then(function(data) {
-            var roll = data.data.Dice
+            var roll = data.data.Dice;
             console.log(roll);
             getJokeApi(jokeUrl, roll);
             return data;
-        })
-        
+        })     
 }
 
 // gets the jokes per number of roll from the jokes api
@@ -32,10 +31,8 @@ function getJokeApi(requestUrl, roll) {
             console.log(data.joke);
             addJokes(data.joke);
             return data;
-        })
-        
+        })   
     }
-    
 }
 
 // Stores jokes in local storage
@@ -54,7 +51,7 @@ function getStorage() {
 // appends a new joke to localStorage, use this for saving jokes
 function appendStorage(newJoke) {
     if (!localStorage.getItem("jokes")) {
-        jokesArr = []
+        jokesArr = [];
     } else {
         jokesArr = getStorage();
     }
@@ -62,14 +59,15 @@ function appendStorage(newJoke) {
     jokesArr.push(newJoke);
     
     setStorage(jokesArr);
-    console.log(localStorage)
 }
 
 // This button will generate items to the page
 var generateJokes = $("#jokes-gen-btn");
 generateJokes.on('click', function() {
-
+    
+    // Empties page 
     $('#jokes-list').empty();
+
     // getDiceApi calls getJokeApi so only one function is needed
     getDiceApi(diceUrl);
 
