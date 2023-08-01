@@ -21,6 +21,10 @@ function getDiceApi(requestUrl) {
 // gets the jokes per number of roll from the jokes api
 function getJokeApi(requestUrl, roll) {
     
+
+    // DELETE THIS LINE IF YOU WANT PERSISTENT LOCALSTORAGE, IT WILL DELETE ALL OF OUR SAVED JOKES EVERYTIME THE PAGE IS RELOADED
+    // localStorage.clear();
+
     for (i = 0; i < roll; i++) {
         fetch(requestUrl) 
         .then(function(response) {
@@ -54,7 +58,7 @@ function setStorage(jokes) {
     localStorage.setItem("jokes", jokesString);
 }
 
-// Creates a variable that converts string back to an object
+// Creates a variable that converts string back to an object that we can use in javascript
 function getStorage() {
     let jokesDeString = JSON.parse(localStorage.getItem("jokes"));
     return jokesDeString;
@@ -74,24 +78,23 @@ function appendStorage(newJoke) {
     console.log(localStorage)
 }
 
-// Delete button will remove from local storage
-// localStorage.removeItem();
-
-// Clear localStorage every time the script is rerun so our localStorage doesn't blow up 
-localStorage.clear();
-
-// add event listener for a button that will generate items to the page
+// This button will generate items to the page
 var generateJokes = $("#jokes-gen-btn");
 generateJokes.on('click', function() {
+    $('ul').empty();
+    // getDiceApi calls getJokeApi so only one function is needed
     getDiceApi(diceUrl);
-    
+
 })
 
-var jokesList = $("#jokes-list").children();
+
+
+// var jokesList = $("#jokes-list").children();
 function addJokes(joke) {
     var listEl = $('<li id="test-item-generated"></li>')
     var paraEl = $('<p style="color: rgb(24,231,28)"></p>');
     var btnEl = $('<button id="saveBtn">Save</button>');
+    initializeSaveButton(btnEl);
     paraEl.text(joke);
     listEl.append(paraEl);
     listEl.append(btnEl);
@@ -109,11 +112,13 @@ jokesList.each(function() {
     initializeSaveButton($(this));
 })
 
+
+// Every time a new button is appended to the page, you HAVE to have this function call it so the page recognizes what it does
 function initializeSaveButton(button) {
     
     button.on('click', function() {
         var userInput = $(this).children().eq(0).text();
-        console.log(userInput);
+        appendStorage(userInput);
     })
 }
 
@@ -126,19 +131,12 @@ $(button).button().on('click', function() {
 }
 // add a function that displays locally stored items to saved-jokes page
 
-function displaySavedJokes(){
-    let localJokes = JSON.parse(localStorage.getItem('jokes'));
-    let unorderedlist = document.getElementById('saved-jokes-list');
-    for (i = 0; i > localJokes.Length; i++){
-    ul.appendChild(li);
-    }
-}
 
 
 
 // dice list value input creates the inputlist for 
-var diceEl = document.getElementById('diceEx');
-var submit = document.getElementById('submitBtn');
+// var diceEl = document.getElementById('diceEx');
+// var submit = document.getElementById('submitBtn');
 
 
 // submit.addEventListener('click', function(){
