@@ -81,7 +81,7 @@ function appendStorage(newJoke) {
 // This button will generate items to the page
 var generateJokes = $("#jokes-gen-btn");
 generateJokes.on('click', function() {
-    $('ul').empty();
+    $('#jokes-list').empty();
     // getDiceApi calls getJokeApi so only one function is needed
     getDiceApi(diceUrl);
 
@@ -126,7 +126,7 @@ function initializeSaveButton(button) {
 // add event listener for a button that deletes a joke 
 function deleteButton(){
 $(button).button().on('click', function() {
-    $('li').remove();
+    $('').remove();
   });
 }
 // add a function that displays locally stored items to saved-jokes page
