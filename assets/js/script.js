@@ -33,13 +33,11 @@ function getJokeApi(requestUrl, roll) {
         .then(function(data) {
             console.log(data.joke);
             // This below line is for testing, will delete later
-            appendStorage(data.joke);
             addJokes(data.joke);
             return data;
         })
         
         // This is for testing, but as a side note I have no idea why but we need this line below if we want to save to localStorage
-        setStorage(jokesArr);
     }
     
 }
