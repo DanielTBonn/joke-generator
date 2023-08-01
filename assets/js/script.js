@@ -20,7 +20,7 @@ function getDiceApi(requestUrl) {
 
 // gets the jokes per number of roll from the jokes api
 function getJokeApi(requestUrl, roll) {
-
+    
     for (i = 0; i < roll; i++) {
         fetch(requestUrl) 
         .then(function(response) {
@@ -33,12 +33,12 @@ function getJokeApi(requestUrl, roll) {
             addJokes(data.joke);
             return data;
         })
-
+        
         // This is for testing, but as a side note I have no idea why but we need this line below if we want to save to localStorage
         setStorage(jokesArr);
     }
     
- }
+}
 
 
 
@@ -67,9 +67,9 @@ function appendStorage(newJoke) {
     } else {
         jokesArr = getStorage();
     }
-
+    
     jokesArr.push(newJoke);
-
+    
     setStorage(jokesArr);
     console.log(localStorage)
 }
@@ -92,11 +92,9 @@ function addJokes(joke) {
     var listEl = $('<li id="test-item-generated"></li>')
     var paraEl = $('<p style="color: rgb(24,231,28)"></p>');
     var btnEl = $('<button id="saveBtn">Save</button>');
-    // var deleteBtn = $('<button id="deleteButton">Delete</button>');
     paraEl.text(joke);
     listEl.append(paraEl);
     listEl.append(btnEl);
-    // listEl.append(deleteBtn);
     $("#jokes-list").append(listEl)
 }
 
@@ -105,6 +103,7 @@ console.log(jokesList);
 console.log(jokesList.children().eq(0))
 
 // add event listener for a button that saves a joke
+var deleteBtn = $('<button id="deleteButton">Delete</button>');
 
 jokesList.each(function() {
     initializeSaveButton($(this));
