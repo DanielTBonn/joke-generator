@@ -1,25 +1,30 @@
 function displayJokes(){
 
     var listEl = $("#saved-jokes-list");
-    var listItemText = JSON.parse(localStorage.getItem("jokes"));
-    var deleteBtn = $('<button id="delBtn">Delete</button>');
-    console.log(listItemText);
+    var listItemsInStorage = JSON.parse(localStorage.getItem("jokes"));
     
-    for (let i = 0; i < listItemText.length; i++) {
+    for (let i = 0; i < listItemsInStorage.length; i++) {
         var listItemEl = $('<li>');
-        listItemEl.text(listItemText[i]);
-        console.log(listItemEl);
+        var deleteBtn = $('<button>Delete</button>');
+        var text = listItemsInStorage[i]
+        deleteBtn.attr('data-text',text);
+        listItemEl.text(text);
+        listItemEl.append(deleteBtn);
         listEl.append(listItemEl);
-        listEl.append(deleteBtn);
+
+        deleteBtn.on('click', function(){
+            var listItemsInStorage = JSON.parse(localStorage.getItem("jokes"));
+            var data = $(this).attr('data-text')
+            var filteredListItems = listItemsInStorage.filter((item, index) => {
+                console.log({data, item})
+              return  data !== item
+            });
+            localStorage.setItem('jokes',JSON.stringify(filteredListItems));
+            $(this).parent().remove();
+        
+        })
     }
 }
     
 displayJokes();
 
-
-
-var deleteBtn = ('<button id="deleteButton">Delete</button>');
-$deleteBtn.on('click', function(){
-    localStorage.removeItem('#test-item-saved');
-
-})
