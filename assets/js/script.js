@@ -81,7 +81,8 @@ function appendStorage(newJoke) {
 // This button will generate items to the page
 var generateJokes = $("#jokes-gen-btn");
 generateJokes.on('click', function() {
-    $('ul').empty();
+
+    $('#jokes-list').empty();
     // getDiceApi calls getJokeApi so only one function is needed
     getDiceApi(diceUrl);
 
@@ -91,7 +92,7 @@ generateJokes.on('click', function() {
 
 var jokesList = $("#jokes-list").children();
 function addJokes(joke) {
-    var listEl = $('<li id="test-item-generated"></li>')
+    var listEl = $('<li id="test-item-generated"></li>');
     var paraEl = $('<p style="color: rgb(24,231,28)"></p>');
     var btnEl = $('<button id="saveBtn">Save</button>');
     initializeSaveButton(btnEl);
