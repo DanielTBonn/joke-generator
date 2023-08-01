@@ -1,3 +1,4 @@
+// displays the jokes in storage to the page
 function displayJokes(){
 
     var listEl = $("#saved-jokes-list");

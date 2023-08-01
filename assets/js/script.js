@@ -2,6 +2,9 @@
 var diceUrl = 'https://roll-dice1.p.rapidapi.com/rollDice/?rapidapi-key=a652a06e19msh2f6363022ab93a8p1108bejsn7f3bb112893f';
 var jokeUrl = 'https://geek-jokes.sameerkumar.website/api?format=json';
 
+// Created a jokes array
+let jokesArr = [];
+
 // gets the dice roll from our dice API
 function getDiceApi(requestUrl) {
     
@@ -20,11 +23,6 @@ function getDiceApi(requestUrl) {
 
 // gets the jokes per number of roll from the jokes api
 function getJokeApi(requestUrl, roll) {
-    
-
-    // DELETE THIS LINE IF YOU WANT PERSISTENT LOCALSTORAGE, IT WILL DELETE ALL OF OUR SAVED JOKES EVERYTIME THE PAGE IS RELOADED
-    // localStorage.clear();
-
     for (i = 0; i < roll; i++) {
         fetch(requestUrl) 
         .then(function(response) {
@@ -32,24 +30,13 @@ function getJokeApi(requestUrl, roll) {
         })
         .then(function(data) {
             console.log(data.joke);
-            // This below line is for testing, will delete later
-            appendStorage(data.joke);
             addJokes(data.joke);
             return data;
         })
         
-        // This is for testing, but as a side note I have no idea why but we need this line below if we want to save to localStorage
-        setStorage(jokesArr);
     }
     
 }
-
-
-
-// Created a jokes array for testing
-let jokesArr = [];
-
-// grabs jokes from API
 
 // Stores jokes in local storage
 function setStorage(jokes) {   
@@ -88,10 +75,10 @@ generateJokes.on('click', function() {
 
 })
 
-
-
+// adds jokes to the page
 var jokesList = $("#jokes-list").children();
 function addJokes(joke) {
+    // appendStorage(joke);
     var listEl = $('<li id="test-item-generated"></li>');
     var paraEl = $('<p style="color: rgb(24,231,28)"></p>');
     var btnEl = $('<button id="saveBtn">Save</button>');
@@ -102,49 +89,11 @@ function addJokes(joke) {
     $("#jokes-list").append(listEl)
 }
 
-
-// console.log(jokesList);
-// console.log(jokesList.children().eq(0))
-
-// add event listener for a button that saves a joke
-var deleteBtn = $('<button id="deleteButton">Delete</button>');
-
-jokesList.each(function() {
-    initializeSaveButton($(this));
-})
-
-
 // Every time a new button is appended to the page, you HAVE to have this function call it so the page recognizes what it does
 function initializeSaveButton(button) {
-    
+    console.log(button);
     button.on('click', function() {
-        var userInput = $(this).children().eq(0).text();
-        appendStorage(userInput);
+        var newJoke = $(this).parent().children().eq(0).text();
+        appendStorage(newJoke);
     })
 }
-
-
-// add event listener for a button that deletes a joke 
-function deleteButton(){
-$(button).button().on('click', function() {
-    $('').remove();
-  });
-}
-// add a function that displays locally stored items to saved-jokes page
-
-
-
-
-// dice list value input creates the inputlist for 
-// var diceEl = document.getElementById('diceEx');
-// var submit = document.getElementById('submitBtn');
-
-
-// submit.addEventListener('click', function(){
-//     var dicelist = diceEl.value;
-//     console.log(dicelist);
-//     for (var index = 0; index < dicelist; index++) {
-//          var inputlist = document.createElement('li');
-//         document.querySelector('ol').appendChild(inputlist);
-//     }
-// })
