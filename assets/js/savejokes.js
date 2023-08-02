@@ -4,7 +4,7 @@ function displayJokes(){
     var listEl = $("#saved-jokes-list");
     var listItemsInStorage = JSON.parse(localStorage.getItem("jokes"));
 
-    if (!listItemsInStorage) {
+    if (!listItemsInStorage || listItemsInStorage.length === 0) {
         // console.log(listItemsInStorage)
         var nothingSection = $('#nothing-here');
         var nothingHere = $("<h2 class='pink-text text-accent-3'>You have no saved jokes.</h2>");
