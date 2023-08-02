@@ -1,3 +1,6 @@
+let today = dayjs();
+console.log(today.$d);
+
 // displays the jokes in storage to the page
 function displayJokes(){
 
@@ -41,19 +44,22 @@ function showEmpty() {
 displayJokes();
 
 function addJokeCard(joke, btnEl) {
+    var authorEl = $('<p>Author: Student &ltStudent-UTA-VIRT@bootcampspot.com>')
+    var dateEl = $('<p>Date:  '+ today.$d +'</p>');
     var rowEl = $('<div class="row"></div>');
     var colEl = $('<div class="col m12"></div>');
     var cardEl = $('<div class="card black darken-1"></div>');
     var cardContentEl = $('<div class="card-content white-text"></div>');
     var spanEl = $('<span class="card-title teal-text text-darken-4">Student-UTA-VIRT@DESKTOP <span class="purple-text text-darken-4">MINGW64 </span><span class="lime-text text-lighten-2">~</span></span>')
-    // var spanEl = $('<span class="card-title teal-text text-darken-4">Student-UTA-VIRT@DESKTOP <span class="purple-text text-darken-4">MINGW64 </span><span class="lime-text text-lighten-2">commit ' + randomCommitGen() +' (HEAD -> feature/add-cards)</span></span>')
+    var commitEl = $('<span class="lime-text text-lighten-2">commit ' + randomCommitGen()+ '</span>')
     var actionEl = $('<div class="card-action"></div>');
     var jokeEl = $('<span id="joke-text"> </span>')
     var paraEl = $('<p id="dollar-sign" class="center-align"> </p>');
     jokeEl.text(joke);
-    // var btnEl = $('<button class="teal"><a href="#">git commit</a></button>');
     actionEl.append(btnEl);
-    cardContentEl.append(spanEl);
+    cardContentEl.append(commitEl);
+    cardContentEl.append(authorEl);
+    cardContentEl.append(dateEl);
     paraEl.append(jokeEl);
     cardContentEl.append(paraEl);
     cardEl.append(cardContentEl);
