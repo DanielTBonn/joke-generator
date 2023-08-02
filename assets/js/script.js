@@ -95,3 +95,43 @@ function initializeSaveButton(button) {
         appendStorage(newJoke);
     })
 }
+
+function initializeSaveButton2(button) {
+    console.log(button);
+    button.on('click', function() {
+        var newJoke = $(this).parent().children().eq(0).text();
+        appendStorage(newJoke);
+    })
+}
+
+function addJokeCard(joke) {
+    var rowEl = $('<div class="row"></div>');
+    var colEl = $('<div class="col m12"></div>');
+    var cardEl = $('<div class="card blue-grey darken-1"></div>');
+    var cardContentEl = $('<div class="card-content white-text"></div>');
+    var spanEl = $('<span class="card-title teal-text text-darken-4">Student-UTA-VIRT@DESKTOP <span class="purple-text text-darken-4">MINGW64 </span><span style="color: rgb();">~</span></span>')
+    var actionEl = $('<div class="card-action"></div>');
+    var paraEl = $('<p></p>');
+    paraEl.text('$ ' + joke);
+    var btnEl = $('<button class="teal"><a href="#">git commit -m "new joke"</a></button>');
+    initializeSaveButton(btnEl);
+    actionEl.append(btnEl);
+    cardContentEl.append(spanEl);
+    cardContentEl.append(paraEl);
+    cardEl.append(cardContentEl);
+    cardEl.append(actionEl);
+    colEl.append(cardEl);
+    rowEl.append(colEl);
+
+
+    // var divEl = $('<div class="row"><div class="col m12"><div class="card blue-grey darken-1"><div class="card-content white-text"><span class="card-title">Student@UTA-VIRT-FSF-PT-06-2023-U-LOLC-MWTH <span>MINGW64 </span><span>~</span></span><p>'
+    // + joke +
+    // '</p></div><div class="card-action">'
+    //                     +
+    //                     '</div></div></div></div>');
+    //                     divEl.append(btnEl);
+    $("#jokes-list").append(rowEl)
+
+}
+
+addJokeCard("Hello World!");
