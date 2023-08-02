@@ -7,27 +7,31 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
         <link rel="stylesheet" href="./assets/css/style.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
     </head>
     <body class="black">
         <header>
-            <!-- Put a navbar in here with an anchor element linking to savedjokes.html  -->
             <nav>
                 <div class="nav-wrapper light-green darken-4">
-                    <a href="#" class="brand-logo lime-text text-lighten-2">Joke Generator</a>
+                    <a href="#" class="brand-logo lime-text text-lighten-2">&nbsp Joke Generator</a>
                     <ul id="nav-mobile" class="right ">
-                        <li><a href="index.html">Joke Generator</a></li>
-                        <li><a href="savedjokes.html"> Saved Jokes</a></li>
+                        <li class="active"><a href="index.html">Home</a></li>
+                        <li><a href="savedjokes.html">Favorites</a></li>
                     </ul>
                 </div>
             </nav>
         </header>
-        <section id="jokes-section">
+        <section class="generate-btn-section center-align">
+            <h2 class="pink-text text-accent-3" style="font-size:25px; margin:20px">Click on the <span class="lime-text text-lighten-2">Generate</span> button below to generate jokes based on a dice roll!</h2>
+            <img src="./assets/Dice/Dice_Momo6.png" alt="dice-picture" style="width:150px; display:block; margin:auto;">
+                <button class="" id="jokes-gen-btn" style="background-color:#33691e">
+                    <a class="waves-effect waves-teal btn-flat lime-text text-lighten-2"
+                    style="background-color:#33691e">Generate</a>
+                </button>
+            </section>
+        <section id="jokes-section" style="padding: 0 5%;">
             <ul id="jokes-list">
                 
             </ul>
-            <button id="jokes-gen-btn">Generate</button>
-            
         </section>
         <script src="./assets/js/script.js" ></script>
     </body>

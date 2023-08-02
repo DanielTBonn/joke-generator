@@ -29,7 +29,7 @@ function getJokeApi(requestUrl, roll) {
         })
         .then(function(data) {
             console.log(data.joke);
-            addJokes(data.joke);
+            addJokeCard(data.joke);
             return data;
         })   
     }
@@ -79,7 +79,7 @@ function addJokes(joke) {
     // appendStorage(joke);
     var listEl = $('<li id="test-item-generated"></li>');
     var paraEl = $('<p style="color: rgb(24,231,28)"></p>');
-    var btnEl = $('<button id="saveBtn">Save</button>');
+    var btnEl = $('<button id="saveBtn"style="background-color:#33691e; width:100px;"><a class="waves-effect waves-teal btn-flat lime-text text-lighten-2" style="background-color:#33691e">Save</a></button>');
     initializeSaveButton(btnEl);
     paraEl.text(joke);
     listEl.append(paraEl);
@@ -95,3 +95,37 @@ function initializeSaveButton(button) {
         appendStorage(newJoke);
     })
 }
+
+function initializeSaveButton2(button) {
+    console.log(button);
+    button.on('click', function() {
+        var newJoke = $(this).parent().parent().children().children().eq(1).children().text();
+        console.log(newJoke);
+        appendStorage(newJoke);
+    })
+}
+
+function addJokeCard(joke) {
+    var rowEl = $('<div class="row"></div>');
+    var colEl = $('<div class="col m12"></div>');
+    var cardEl = $('<div class="card black darken-1"></div>');
+    var cardContentEl = $('<div class="card-content white-text"></div>');
+    var spanEl = $('<span class="card-title teal-text text-darken-4">Student-UTA-VIRT@DESKTOP <span class="purple-text text-darken-4">MINGW64 </span><span class="lime-text text-lighten-2">~</span></span>')
+    var actionEl = $('<div class="card-action"></div>');
+    var jokeEl = $('<span id="joke-text"> </span>')
+    var paraEl = $('<p id="dollar-sign">$ </p>');
+    jokeEl.text(joke);
+    var btnEl = $('<button class="teal"><a href="#">git commit</a></button>');
+    initializeSaveButton2(btnEl);
+    actionEl.append(btnEl);
+    cardContentEl.append(spanEl);
+    paraEl.append(jokeEl);
+    cardContentEl.append(paraEl);
+    cardEl.append(cardContentEl);
+    cardEl.append(actionEl);
+    colEl.append(cardEl);
+    rowEl.append(colEl);
+
+    $("#jokes-list").append(rowEl)
+}
+
