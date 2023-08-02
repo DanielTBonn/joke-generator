@@ -6,7 +6,7 @@ function displayJokes(){
     
     for (let i = 0; i < listItemsInStorage.length; i++) {
         var listItemEl = $('<li>');
-        var deleteBtn = $('<button>Delete</button>');
+        var deleteBtn = $('<button id="delBtn"style="background-color:#33691e; width:100px;"><a class="waves-effect waves-teal btn-flat lime-text text-lighten-2" style="background-color:#33691e">Delete</a></button>');
         var text = listItemsInStorage[i]
         deleteBtn.attr('data-text',text);
         listItemEl.text(text);
