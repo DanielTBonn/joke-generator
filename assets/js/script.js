@@ -130,4 +130,3 @@ function addJokeCard(joke) {
 
 }
 
-addJokeCard("Hello World!");
