@@ -112,14 +112,14 @@ function addJokeCard(joke) {
     var cardContentEl = $('<div class="card-content white-text"></div>');
     var spanEl = $('<span class="card-title teal-text text-darken-4">Student-UTA-VIRT@DESKTOP <span class="purple-text text-darken-4">MINGW64 </span><span class="lime-text text-lighten-2">~</span></span>')
     var actionEl = $('<div class="card-action"></div>');
-    var dollarEl = $('<span id="joke-text"> </span>')
+    var jokeEl = $('<span id="joke-text"> </span>')
     var paraEl = $('<p id="dollar-sign">$ </p>');
-    dollarEl.text(joke);
+    jokeEl.text(joke);
     var btnEl = $('<button class="teal"><a href="#">git commit</a></button>');
     initializeSaveButton2(btnEl);
     actionEl.append(btnEl);
     cardContentEl.append(spanEl);
-    paraEl.append(dollarEl);
+    paraEl.append(jokeEl);
     cardContentEl.append(paraEl);
     cardEl.append(cardContentEl);
     cardEl.append(actionEl);
@@ -127,6 +127,5 @@ function addJokeCard(joke) {
     rowEl.append(colEl);
 
     $("#jokes-list").append(rowEl)
-
 }
 
