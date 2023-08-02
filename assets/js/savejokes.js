@@ -45,10 +45,11 @@ function addJokeCard(joke, btnEl) {
     var colEl = $('<div class="col m12"></div>');
     var cardEl = $('<div class="card black darken-1"></div>');
     var cardContentEl = $('<div class="card-content white-text"></div>');
-    var spanEl = $('<span class="card-title teal-text text-darken-4">Student-UTA-VIRT@DESKTOP <span class="purple-text text-darken-4">MINGW64 </span><span class="lime-text text-lighten-2">commit 9d5baaf1f6c7a062be06472d672862e8fa68139d (HEAD -> feature/add-cards)</span></span>')
+    var spanEl = $('<span class="card-title teal-text text-darken-4">Student-UTA-VIRT@DESKTOP <span class="purple-text text-darken-4">MINGW64 </span><span class="lime-text text-lighten-2">~</span></span>')
+    // var spanEl = $('<span class="card-title teal-text text-darken-4">Student-UTA-VIRT@DESKTOP <span class="purple-text text-darken-4">MINGW64 </span><span class="lime-text text-lighten-2">commit ' + randomCommitGen() +' (HEAD -> feature/add-cards)</span></span>')
     var actionEl = $('<div class="card-action"></div>');
     var jokeEl = $('<span id="joke-text"> </span>')
-    var paraEl = $('<p id="dollar-sign">$ </p>');
+    var paraEl = $('<p id="dollar-sign" class="center-align"> </p>');
     jokeEl.text(joke);
     // var btnEl = $('<button class="teal"><a href="#">git commit</a></button>');
     actionEl.append(btnEl);
@@ -67,7 +68,18 @@ function addJokeCard(joke, btnEl) {
 function randomCommitGen() {
     let commitLength = 40;
     let randomGenString = "abcdefghijklmnopqrstuvwxyz0123456789";
-    
-    console.log(randomGenString.length);
+    let result = "";
+    for (let i = 0; i < commitLength; i++) {
+        let n = randomNumberGen(randomGenString.length);
+        result += randomGenString[n];
+    }
+
+    return result;
 }
+
+function randomNumberGen(range) {
+    console.log(range)
+    return Math.floor(Math.random() * range);
+}
+
 randomCommitGen()
