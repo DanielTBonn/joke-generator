@@ -1,8 +1,8 @@
 # User Story 
 
-As a funny guy
+As a disgruntled programmer
 I WANT to save funny jokes
-SO THAT I can laugh at them later when i'm down
+SO THAT I can laugh at them later
 
 ## Acceptance Criteria 
 
