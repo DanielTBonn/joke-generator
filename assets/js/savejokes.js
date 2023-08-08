@@ -48,10 +48,10 @@ function addJokeCard(joke, btnEl) {
     var dateEl = $('<p>Date: '+ today.$d +'</p>');
     var rowEl = $('<div class="row"></div>');
     var colEl = $('<div class="col m12"></div>');
-    var cardEl = $('<div class="card black darken-1"></div>');
+    var cardEl = $('<div class="card grey darken-4"></div>');
     var cardContentEl = $('<div class="card-content white-text"></div>');
     var spanEl = $('<span class="card-title teal-text text-darken-4">Student-UTA-VIRT@DESKTOP <span class="purple-text text-darken-4">MINGW64 </span><span class="lime-text text-lighten-2">~</span></span>');
-    var commitEl = $('<span class="lime-text text-lighten-2">commit ' + randomCommitGen()+ '</span>');
+    var commitEl = $('<span class="lime-text text-lighten-1">commit ' + randomCommitGen()+ '</span>');
     var actionEl = $('<div class="card-action"></div>');
     var jokeEl = $('<span id="joke-text"> </span>');
     var paraEl = $('<br><p id="dollar-sign">&nbsp &nbsp &nbsp </p>');
