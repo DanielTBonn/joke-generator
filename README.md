@@ -14,9 +14,9 @@ https://danieltbonn.github.io/joke-generator/
 
 ## Credits
 
-Amber Diehl
-Daniel Bonn
-Eduardo Perez
+Amber Diehl, 
+Daniel Bonn, 
+Eduardo Perez, 
 Kiara Johnson
 
 

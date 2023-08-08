@@ -110,7 +110,7 @@ function addJokeCard(joke) {
     var colEl = $('<div class="col m12"></div>');
     var cardEl = $('<div class="card grey darken-4"></div>');
     var cardContentEl = $('<div class="card-content white-text"></div>');
-    var spanEl = $('<span class="card-title green-text text-darken-2">Student-UTA-VIRT@DESKTOP <span class="deep-purple-text text-darken-1">MINGW64 </span><span class="lime-text text-lighten-2">~</span></span>')
+    var spanEl = $('<span class="card-title green-text text-darken-2">Student-UTA-VIRT@DESKTOP <span class="deep-purple-text text-lighten-1">MINGW64 </span><span class="lime-text text-lighten-2">~</span></span>')
     var actionEl = $('<div class="card-action"></div>');
     var jokeEl = $('<span id="joke-text"> </span>')
     var paraEl = $('<p id="dollar-sign">$ </p>');
