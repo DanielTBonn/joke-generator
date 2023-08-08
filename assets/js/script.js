@@ -125,6 +125,7 @@ function addJokeCard(joke) {
     cardEl.append(actionEl);
     colEl.append(cardEl);
     rowEl.append(colEl);
+    
 
     $("#jokes-list").append(rowEl)
 }
